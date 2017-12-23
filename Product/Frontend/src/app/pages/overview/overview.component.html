@@ -1,0 +1,42 @@
+  <!--Author: Anton Bergström, Ariyan Abdulla, David Schutzer-->
+  <!--Date: 2017-09-30-->
+  <!--Last update: 2017-11-24 by Anton & Ariyan-->
+  <!--This contains the html code for the overview page.-->
+
+<div class ="row">
+  <div class="col-lg-8">
+    <nb-card>
+        <h2 style="padding: 10px">
+          <ngx-modals [modalHeader]=modalHeader1 [modalContent]=modalContent1></ngx-modals>
+          Top Recommended Content
+        </h2>
+        <ngx-d3-bar style="height: 660px; width: auto" [factor]=1></ngx-d3-bar>
+    </nb-card>
+  </div>
+  <div class="col-lg-4">
+    <nb-card>
+        <nb-card-header>
+          <h2 style="padding: 10px">
+            <ngx-modals [modalHeader]=modalHeader2 [modalContent]=modalContent2></ngx-modals>
+             Top Recommended Content
+           </h2></nb-card-header>
+          <nb-card-header *ngFor="let movie of data?.recommendation_list"> {{movie.title}} {{movie.successRate}}% </nb-card-header>
+        </nb-card>
+  </div>
+  <div class="col-lg-8">
+    <nb-card>
+        <h2 style="padding: 10px">
+            <ngx-modals [modalHeader]=modalHeader3 [modalContent]=modalContent3></ngx-modals>
+             Top Trending Content
+        </h2>
+        <ngx-d3-bar style="height: 660px; width: auto" [factor]= 2 ></ngx-d3-bar>
+    </nb-card>
+  </div>
+
+  <div class="col-lg-4">
+      <nb-card>
+       <nb-card-header><h2 style="padding: 10px"><ngx-modals [modalHeader]=modalHeader4 [modalContent]=modalContent4></ngx-modals> Top trending content</h2></nb-card-header>
+          <nb-card-header *ngFor="let movie of dataTrending?.trendingMovies"> {{movie.title}}</nb-card-header>
+      </nb-card>
+  </div>
+</div>

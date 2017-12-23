@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-lg-12">
+    <nb-card>
+        <h2> Recommendations </h2>
+        <nb-card-header *ngFor="let movie of data?.movies"> {{movie.name}} {{movie.id}} </nb-card-header>
+      <!--<nb-card-header>Recommendations</nb-card-header>
+        <h3>{{data}}</h3>
+      <nb-card-header *ngFor="let movie of data">
+          <h3>{{movie}}</h3>
+      </nb-card-header>-->
+    </nb-card>
+  </div>
+</div>

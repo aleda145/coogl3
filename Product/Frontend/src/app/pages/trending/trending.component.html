@@ -1,0 +1,35 @@
+
+  <!--Author: Anton Bergström, Ariyan Abdulla-->
+  <!--Date: 2017-09-30-->
+  <!--Last update: 2017-11-30 by David Schützer-->
+  <!--This contains the html code for the trending page.-->
+
+<div class ="row">
+  <div class="col-lg-10">
+    <nb-card>
+      <h2 style="padding: 10px">
+        <ngx-modals [modalHeader]=modalHeader1 [modalContent]=modalContent1></ngx-modals>
+        Total Trending Score
+      </h2>
+      <ngx-d3-bar style="height: 660px; width: auto" [factor] = 1></ngx-d3-bar>
+    </nb-card>
+  </div>
+  <div class="col-lg-5">
+    <nb-card>
+      <h2 style="padding: 10px">
+        <ngx-modals [modalHeader]=modalHeader2 [modalContent]=modalContent2></ngx-modals>
+        YouTube Score
+      </h2>
+      <ngx-d3-bar style="height: 660px; width: auto" [factor] = 2></ngx-d3-bar>
+    </nb-card>
+  </div>
+  <div class="col-lg-5">
+    <nb-card>
+      <h2 style="padding: 10px">
+        <ngx-modals [modalHeader]=modalHeader3 [modalContent]=modalContent3></ngx-modals>
+        Twitter Score
+      </h2>
+      <ngx-d3-bar style="height: 660px; width: auto" [factor] = 3></ngx-d3-bar>
+    </nb-card>
+  </div>
+</div>

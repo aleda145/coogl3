@@ -1,0 +1,77 @@
+
+  <!--Author: Anton Bergström, Ariyan Abdulla, Bamse, David Schutzer-->
+  <!--Date: 2017-09-30-->
+  <!--Last update: 2017-11-23 by Bamse & David-->
+  <!--This contains the html code for the recommendation page.-->
+
+<div class="row">
+  <div class="col-lg-8">
+    <nb-card>
+      <nb-card-header>
+      <h2 style="padding: 10px">
+      <ngx-modals [modalHeader]=modalHeader1 [modalContent]=modalContent1></ngx-modals>
+      Times Recommended
+      </h2>
+      </nb-card-header>
+      <nb-card-body>
+        <ngx-d3-bar [args]=model></ngx-d3-bar>
+      </nb-card-body>
+    </nb-card>
+  </div>
+    <div class="col-lg-4">
+      <nb-card>
+          <nb-card-header>
+            <h2 style="padding: 10px">
+            <ngx-modals [modalHeader]=modalHeader2 [modalContent]=modalContent2></ngx-modals>
+            Top Recommendations</h2>
+          </nb-card-header>
+          <nb-card-header *ngFor="let movie of data?.recommendation_list"> {{movie.title}} </nb-card-header>
+      </nb-card>
+    </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-header>
+        <h2 style="padding: 10px">
+        <ngx-modals [modalHeader]=modalHeader3 [modalContent]=modalContent3></ngx-modals>
+        Demographic
+        </h2>
+      </nb-card-header>
+      <nb-card-body>
+        <div class="btn-group btn-toggle-group btn-outline-toggle-group" data-toggle="buttons"
+             [(ngModel)]="paginationModel" ngbRadioGroup>
+          <label (click)="setAge(0, 200)" ngbButtonLabel class="btn btn-outline-success">
+            <input ngbButton type="radio" [value]="1"> All
+          </label>
+          <label (click)="setAge(18, 24)" ngbButtonLabel class="btn btn-outline-success">
+            <input ngbButton type="radio" [value]="2"> 18-24
+          </label>
+          <label (click)="setAge(25, 34)" ngbButtonLabel class="btn btn-outline-success">
+            <input ngbButton type="radio" [value]="3"> 25-34
+          </label>
+          <label (click)="setAge(35, 44)" ngbButtonLabel class="btn btn-outline-success">
+            <input ngbButton type="radio" [value]="4"> 35-44
+          </label>
+          <label ngbButtonLabel class="btn btn-outline-success">
+            <input (click)="setAge(45, 64)" ngbButton type="radio" [value]="5"> 45-64
+          </label>
+          <label (click)="setAge(65, 200)" ngbButtonLabel class="btn btn-outline-success">
+            <input ngbButton type="radio" [value]="6"> 65+
+          </label>
+        </div>
+        <div class="btn-group btn-toggle-group" data-toggle="buttons">
+          <label ngbButtonLabel class="btn btn-success" [class.active]="model.male">
+            <input (click)="getDemoData()" ngbButton type="checkbox" [(ngModel)]="model.male"> Male
+          </label>
+          <label ngbButtonLabel class="btn btn-success" [class.active]=model.other>
+            <input (click)="getDemoData()" ngbButton type="checkbox" [(ngModel)]="model.other"> Other
+          </label>
+          <label ngbButtonLabel class="btn btn-success" [class.active]="model.female">
+            <input (click)="getDemoData()" ngbButton type="checkbox" [(ngModel)]="model.female"> Female
+          </label>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

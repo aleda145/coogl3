@@ -1,0 +1,34 @@
+stages:
+  - test
+  # - deploy
+
+before_script:
+    - export PYTHONPATH="${PYTHONPATH}:/home/gitlab-runner/builds/da0b8d35/0/PUM-Company3/Software/"
+
+test_script:
+  script:
+    - echo "test_script"
+    - pwd
+    - source /home/sebbe953/virtualenvs/pum-venv/bin/activate
+    - python --version
+    - python ./Product/Database/DBConn.py
+    - python ./Product/Database/DBFillSmallSet.py
+    - python ./Product/TrendManager/RunTrend.py
+    - ./test_script
+  stage: test
+
+# deploy_script:
+#   script:
+#     - echo "deploy_script"
+#     - pwd
+#     - whoami
+#     - docker-compose -f docker-compose.yml -f docker-compose.prod.yml build web
+#     - docker-compose -f docker-compose.yml -f docker-compose.prod.yml build recommendation
+#     - docker-compose -f docker-compose.yml -f docker-compose.prod.yml build trending
+#     - nohup docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+#     - cd Product/Frontend
+#     - npm install
+#     - npm run build:prod
+#   only:
+#     - master
+#   stage: deploy
